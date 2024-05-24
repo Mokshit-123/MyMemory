@@ -1,9 +1,6 @@
-MYMemory
+# MyMemory
+
 Welcome to the MyMemory Game! This is a simple and fun game where you have to find matching tiles in a grid. Inspired by the classic memory game from Purble Palace, this game challenges your memory and concentration skills.
-
-# Tile Matching Game
-
-Welcome to the Tile Matching Game! This is a simple and fun game where you have to find matching tiles in a grid. Inspired by the classic memory game from Purble Palace, this game challenges your memory and concentration skills.
 
 ## Game Overview
 
