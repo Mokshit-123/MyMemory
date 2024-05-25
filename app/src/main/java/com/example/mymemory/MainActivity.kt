@@ -129,7 +129,7 @@ fun Main(
                         )
                         DropdownMenuItem(
                             text = { Text(text = "Star this repo")},
-                            onClick = { uriHandler.openUri("https://github.com/Mokshit-123/TestCaseGenerator")},
+                            onClick = { uriHandler.openUri("https://github.com/Mokshit-123/MyMemory")},
                             leadingIcon = { Icon(painterResource(id = R.drawable.baseline_star_outline_24), contentDescription = "")}
                         )
                         DropdownMenuItem(
