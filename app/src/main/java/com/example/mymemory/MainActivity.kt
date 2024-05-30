@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +25,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Done
 import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Star
@@ -114,7 +118,7 @@ fun Main(
                 },
                 actions = {
                     IconButton(onClick = {mDisplayMenu=!mDisplayMenu}){
-                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "")
+                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Menu")
                     }
                     DropdownMenu(
                         expanded = mDisplayMenu,
@@ -122,20 +126,29 @@ fun Main(
                     ) {
                         DropdownMenuItem(
                             text = { Text(text = "Settings")},
-                            onClick = {mSettingMenu=!mSettingMenu},
+                            onClick = {
+                                mSettingMenu=!mSettingMenu
+                                mDisplayMenu = false
+                                      },
                             leadingIcon = {
-                                Icon(imageVector = Icons.Outlined.Settings, contentDescription = "")
+                                Icon(imageVector = Icons.Outlined.Settings, contentDescription = "Settings")
                             }
                         )
                         DropdownMenuItem(
                             text = { Text(text = "Star this repo")},
-                            onClick = { uriHandler.openUri("https://github.com/Mokshit-123/MyMemory")},
-                            leadingIcon = { Icon(painterResource(id = R.drawable.baseline_star_outline_24), contentDescription = "")}
+                            onClick = {
+                                uriHandler.openUri("https://github.com/Mokshit-123/MyMemory")
+                                mDisplayMenu = false
+                                      },
+                            leadingIcon = { Icon(painterResource(id = R.drawable.baseline_star_outline_24), contentDescription = "Settings")}
                         )
                         DropdownMenuItem(
                             text = { Text(text = "Reset")},
-                            onClick = { memoryViewModel.resetGame() },
-                            leadingIcon = { Icon(imageVector = Icons.Outlined.Refresh, contentDescription = "")}
+                            onClick = {
+                                memoryViewModel.resetGame()
+                                mDisplayMenu = false
+                                      },
+                            leadingIcon = { Icon(imageVector = Icons.Outlined.Refresh, contentDescription = "Reset")}
                         )
                     }
                     DropdownMenu(
@@ -144,15 +157,33 @@ fun Main(
                     {
                         DropdownMenuItem(
                             text = { Text(text = "Easy") },
-                            onClick = { memoryViewModel.difficulty("Easy") }
+                            onClick = {
+                                memoryViewModel.difficulty("Easy")
+                                mSettingMenu = false
+                                      },
+                            leadingIcon = {
+                                Icon(painterResource(id = R.drawable.baseline_sentiment_very_satisfied_24), contentDescription = null)
+                            }
                         )
                         DropdownMenuItem(
                             text = { Text(text = "Medium") },
-                            onClick = { memoryViewModel.difficulty("Medium") }
+                            onClick = {
+                                memoryViewModel.difficulty("Medium")
+                                      mSettingMenu=false
+                                      },
+                            leadingIcon = {
+                                Icon(painterResource(id = R.drawable.baseline_sentiment_neutral_24), contentDescription = null )
+                            }
                         )
                         DropdownMenuItem(
                             text = { Text(text = "Hard") },
-                            onClick = { memoryViewModel.difficulty("Hard") }
+                            onClick = {
+                                memoryViewModel.difficulty("Hard")
+                                mSettingMenu=false
+                                      },
+                            leadingIcon = {
+                                Icon(painterResource(id = R.drawable.baseline_mood_bad_24), contentDescription = null)
+                            }
                         )
                     }
                 },
@@ -218,21 +249,36 @@ fun Main(
             items( memoryViewModel.shuffledPhotos.size) {index->
                 var photo = memoryViewModel.shuffledPhotos[index]
                 Box (modifier = Modifier
-
                         .clickable {
                             memoryViewModel.changeImage(photo, index)
 
                         }
                 ){
-                    Image(
-                        painter =  if(photo.isFlipped) painterResource(id = photo.dummyImageResourceId) else painterResource(id = R.drawable.ic_launcher_foreground),
-                        contentDescription = "",
-                        modifier = Modifier
-                            .size(150.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .align(Alignment.Center)
 
-                    )
+                    Crossfade(targetState = photo.isFlipped, animationSpec = tween(2000), label = "", modifier = Modifier.align(Alignment.Center)) {flipped->
+                        if(flipped){
+                            Image(
+                                painter =  painterResource(id = photo.dummyImageResourceId) ,
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .size(150.dp)
+                                    .clip(RoundedCornerShape(16.dp))
+                                    .align(Alignment.Center)
+
+                            )
+                        }else{
+                            Image(
+                                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .size(150.dp)
+                                    .clip(RoundedCornerShape(16.dp))
+                                    .align(Alignment.Center)
+
+                            )
+                        }
+                    }
+
                 }
             }
         }

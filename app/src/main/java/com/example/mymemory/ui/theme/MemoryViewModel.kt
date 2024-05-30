@@ -2,7 +2,12 @@ package com.example.mymemory.ui.theme
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
 import com.example.mymemory.data.Photo
 import com.example.mymemory.data.photos
@@ -79,7 +84,9 @@ class MemoryViewModel : ViewModel() {
             }
         }
     }
-    private fun isCorrectImage(){
+    @Composable
+    fun animateImage(index:Int) {
+        var isRound by remember { mutableStateOf(false) }
 
     }
     fun resetGame(columns : Int = 2) {
@@ -88,6 +95,7 @@ class MemoryViewModel : ViewModel() {
         Log.d(TAG, "resetGame: ${shuffledPhotos.size}")
         turnedImages.clear()
         _uiState.value = MemoryState(images = pickRandomImagesAndShuffle(columns*2), flippedImages = listOf(), cols = columns, pairs = 2*columns)
+
     }
 
     init {
