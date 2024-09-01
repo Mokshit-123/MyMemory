@@ -4,33 +4,50 @@ Welcome to the MyMemory Game! This is a simple and fun game where you have to fi
 
 ## Game Overview
 
-When you start the game, you will be presented with an easy level featuring a 4x2 grid of tiles. Your goal is to find pairs of matching images by tapping on the tiles. If you match a pair, those tiles remain revealed. If you do not, the tiles will be covered again, and you will need to remember their positions to find the match later.
+When you start the game, you'll be greeted by a start screen where you can choose your difficulty level: Easy, Medium, or Hard. Your goal is to find pairs of matching images by tapping on the tiles. If you match a pair, those tiles remain revealed. If not, the tiles will be covered again, and you will need to remember their positions to find the match later.
 
 ## Features
 
-- **Easy Level**: 4x2 grid
-- **Medium Level**: 3x4 grid
-- **Hard Level**: 4x4 grid
-- **Settings Menu**: Change difficulty level
-- **Reset Game**: Restart the game at any time
-- **Star Repository**: Support the project by starring the repository on GitHub
+- **Easy Level**: 4x2 grid  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/easyLevel.png" width="300">
+
+- **Medium Level**: 3x4 grid  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/mediumLevel.png" width="300">
+
+- **Hard Level**: 4x4 grid  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/hardLevel.png" width="300">
+
+- **Start Screen**: screen when you open app  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreen.png" width="300">
+
+- **Win Screen**: info about game  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/winScreen.png" width="300">
+
+- **Settings**: activate/deactivate haptic feedback  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenSettingsPage.png" width="300">
+
+- **Info**: info about game  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenInfoPage.png" width="300">
 
 ## How to Play
 
-1. **Start the Game**: Launch the game to start on the easy level (4x2 grid).
-2. **Match Tiles**: Tap on two tiles to reveal the images. If they match, they stay revealed. If not, they will be covered again.
-3. **Change Difficulty**: Tap the three-dot menu in the top left corner, go to settings, and select the desired difficulty level (medium: 3x4, hard: 4x4).
-4. **Reset Game**: Use the three-dot menu to reset the game.
-5. **Star the Repository**: Use the three-dot menu to star the repository on GitHub and support the project.
+1. **Download the Game**: Download the game from the APK folder in this repository.
+2. **Start the Game**: Launch the game and select your desired difficulty level on the start screen.
+3. **Match Tiles**: Tap on two tiles to reveal the images. If they match, they stay revealed. If not, they will be covered again.
+4. **Change Difficulty**: Tap the three-dot menu in the top left corner, go to level, and select the desired difficulty level (medium: 3x4, hard: 4x4).
+5. **Finish Screen**: After successfully matching all tiles, a finish screen will be displayed to celebrate your achievement.
+6. **Reset Game**: Use the three-dot menu to reset the game or level.
+7. **Star the Repository**: Use the three-dot menu to star the repository on GitHub and support the project.
 
 ## Future Improvements
 
-- **Winning Screen**: A screen to notify the user when they have successfully matched all the tiles.
 - **Improved Graphics**: Enhanced visuals and animations for a better gaming experience.
-
+- **Background Music**: Add soft background music that will play during the game with an option to stop it.
 
 ## Acknowledgements
+
 Inspired by the memory game from Purble Palace.
-Thanks to all the contributors and users supporting this project.
-Contact
-For any questions or feedback, please reach out at -gargm0068@gmail.com
+
+## Contact
+
+For any questions or feedback, please reach out at gargm0068@gmail.com
