@@ -38,9 +38,10 @@ fun MyMemoryTheme(
     content: @Composable() () -> Unit
 ) {
     val colorScheme = when {
-        darkTheme -> darkColors
+        darkTheme -> lightColors
         else -> lightColors
     }
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

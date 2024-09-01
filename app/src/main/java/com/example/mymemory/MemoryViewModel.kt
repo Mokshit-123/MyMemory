@@ -59,11 +59,11 @@ class MemoryViewModel : ViewModel() {
     }
 
 
-    fun photoClicked(photo: Photo) {
+    fun photoClicked(photo: Photo) : Boolean{
         if (photo.isFlipped.value || flippedPhotos.size == 2 || memoryUiState==MemoryUiState.showingImages) {
             Log.d("Memory ViewModel", "photoClicked: Click ignored")
             // Ignore clicks if the photo is already flipped or two photos are already flipped
-            return
+            return true
         }
 
         // Flip the clicked photo
@@ -92,8 +92,10 @@ class MemoryViewModel : ViewModel() {
                     flippedPhotos.forEach { it.isFlipped.value = false }
                     flippedPhotos.clear()
                 }
+                return false
             }
         }
+        return true
     }
 
     fun pairs(level: Int = memoryState.value.level): Int {
