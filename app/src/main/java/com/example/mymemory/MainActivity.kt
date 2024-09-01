@@ -312,17 +312,6 @@ fun TopBar(
                 onDismissRequest = { mDisplayMenu = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(text = "Level",color = Color.Black)},
-                    onClick = {
-                        mLevelsMenu=!mLevelsMenu
-                        mDisplayMenu = false
-                        Log.d("TAG", "TopBar: Clicked Settings button")
-                    },
-                    leadingIcon = {
-                        Icon(painter = painterResource(R.drawable.bar_chart), contentDescription = "Levels")
-                    }
-                )
-                DropdownMenuItem(
                     text = { Text(text = "Star this repo",color = Color.Black)},
                     onClick = {
                         uriHandler.openUri("https://github.com/Mokshit-123/MyMemory")
@@ -337,42 +326,6 @@ fun TopBar(
                         mResetAlert = true
                     },
                     leadingIcon = { Icon(imageVector = Icons.Outlined.Refresh, contentDescription = "Reset")}
-                )
-            }
-            DropdownMenu(
-                expanded = mLevelsMenu,
-                onDismissRequest = { mLevelsMenu = false })
-            {
-                DropdownMenuItem(
-                    text = { Text(text = "Easy", color = Color.Black) },
-                    onClick = {
-                        mLevelsMenu = false
-                        memoryViewModel.resetGame()
-                    },
-                    leadingIcon = {
-                        Icon(painterResource(id = R.drawable.baseline_sentiment_very_satisfied_24), contentDescription = null)
-                    }
-                )
-                DropdownMenuItem(
-                    text = { Text(text = "Medium",color = Color.Black) },
-                    onClick = {
-                        mLevelsMenu=false
-                        memoryViewModel.updateLevel(2)
-                        Log.d("TAG", "TopBar: trying to update to 2")
-                    },
-                    leadingIcon = {
-                        Icon(painterResource(id = R.drawable.baseline_sentiment_neutral_24), contentDescription = null )
-                    }
-                )
-                DropdownMenuItem(
-                    text = { Text(text = "Hard",color = Color.Black) },
-                    onClick = {
-                        mLevelsMenu=false
-                        memoryViewModel.updateLevel(level = 3)
-                    },
-                    leadingIcon = {
-                        Icon(painterResource(id = R.drawable.baseline_mood_bad_24), contentDescription = null)
-                    }
                 )
             }
         },
@@ -660,25 +613,22 @@ fun ResultScreen(
                 )
                 Row(
                     modifier = Modifier
+                        .padding(8.dp)
                         .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     TextButton(
                         onClick = { onRestartGame() },
-                        modifier = Modifier.padding(8.dp),
                     ) {
                         Text("Reset level")
                     }
                     TextButton(
                         onClick = { onResetGame() },
-                        modifier = Modifier.padding(8.dp),
                     ) {
                         Text("Reset Game")
                     }
-                    Spacer(modifier = Modifier.weight(1f))
                     TextButton(
                         onClick = { onExitGame() },
-                        modifier = Modifier.padding(8.dp),
                     ) {
                         Text("Exit")
                     }
@@ -771,6 +721,80 @@ private fun PrevInfoBox() {
     InfoBox(onDismiss = { /*TODO*/ })
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview
+@Composable
+private fun PrevTopBar() {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = "Memory Quiz",
+                fontSize = 25.sp
+            )
+        },
+        actions = {
+            IconButton(onClick = { }){
+                Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Menu")
+            }
+            DropdownMenu(
+                expanded = false,
+                onDismissRequest = {  }
+            ) {
+                DropdownMenuItem(
+                    text = { Text(text = "Level",color = Color.Black)},
+                    onClick = {  },
+                    leadingIcon = {
+                        Icon(painter = painterResource(R.drawable.bar_chart), contentDescription = "Levels")
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text(text = "Star this repo",color = Color.Black)},
+                    onClick = { },
+                    leadingIcon = { Icon(painterResource(id = R.drawable.baseline_star_outline_24), contentDescription = "Settings")}
+                )
+                DropdownMenuItem(
+                    text = { Text(text = "Reset",color = Color.Black)},
+                    onClick = { },
+                    leadingIcon = { Icon(imageVector = Icons.Outlined.Refresh, contentDescription = "Reset")}
+                )
+            }
+            DropdownMenu(
+                expanded = false,
+                onDismissRequest = {  })
+            {
+                DropdownMenuItem(
+                    text = { Text(text = "Easy", color = Color.Black) },
+                    onClick = { },
+                    leadingIcon = {
+                        Icon(painterResource(id = R.drawable.baseline_sentiment_very_satisfied_24), contentDescription = null)
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text(text = "Medium",color = Color.Black) },
+                    onClick = { },
+                    leadingIcon = {
+                        Icon(painterResource(id = R.drawable.baseline_sentiment_neutral_24), contentDescription = null )
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text(text = "Hard",color = Color.Black) },
+                    onClick = { },
+                    leadingIcon = {
+                        Icon(painterResource(id = R.drawable.baseline_mood_bad_24), contentDescription = null)
+                    }
+                )
+            }
+        },
+
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimary
+        )
+    )
+}
+
 @Preview
 @Composable
 private fun PrevBottomBar() {
@@ -814,4 +838,128 @@ private fun PrevBottomBar() {
         }
     }
 }
+@Preview
+@Composable
+private fun PrevStartScreenDrawerClose() {
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource(R.drawable.fantasy_style_galaxy_background),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+                .blur(radiusX = 30.dp, radiusY = 10.dp)
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .align(Alignment.Center),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.weight(1f))
+            Text(
+                text = "My Memory",
+                color = Color.White,
+                modifier = Modifier.padding(16.dp),
+                fontSize = 46.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = Orbitron
+            )
+            Text(
+                text = "Test Your Memory",
+                color = Color.White,
+                modifier = Modifier.padding(16.dp),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = Orbitron
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            DifficultyButton("Easy", rememberNavController())
+            DifficultyButton("Medium", rememberNavController())
+            DifficultyButton("Hard", rememberNavController())
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            Row {
+                Icon(
+                    imageVector = Icons.Filled.Info,
+                    contentDescription = "Info",
+                    modifier = Modifier.clickable {
+                        //showInfo = true
+                    },
+                    tint = Color.White
+                )
+                Spacer(modifier = Modifier.weight(1f))
+                Icon(
+                    imageVector = Icons.Filled.Settings,
+                    contentDescription = "Settings",
+                    modifier = Modifier.clickable {
+                        //showSettings = true
+                    },
+                    tint = Color.White
+                )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview
+@Composable
+private fun PrevGameScreen() {
+    Scaffold(
+        topBar = {
+            PrevTopBar()
+        },
+        bottomBar = { PrevBottomBar() }
+    ) { paddingValues ->
+        LazyVerticalGrid(
+            contentPadding = paddingValues,
+            columns = GridCells.Fixed(2),
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(8) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(125.dp)
+                        .clip(RoundedCornerShape(25.dp))
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PrevResultScreen() {
+    ResultScreen(
+        onResetGame = { /*TODO*/ },
+        onRestartGame = { /*TODO*/ },
+        onExitGame = { /*TODO*/ },
+        result = ""
+    )
+}
+
+@Preview
+@Composable
+private fun PrevResetAlert() {
+    ResetAlert(message = "Are you sure? All your current progress will be lost!", onResetGame = { /*TODO*/ }, onResetLevel = { /*TODO*/ }) {
+        
+    }
+}
+
 
