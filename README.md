@@ -8,24 +8,30 @@ When you start the game, you'll be greeted by a start screen where you can choos
 
 ## Features
 
-- **Easy Level**: 4x2 grid
- ![Easy level](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/easyLevel.png)
-- **Medium Level**: 3x4 grid
-  ![Medium level](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/mediumLevel.png)
-- **Hard Level**: 4x4 grid
-  ![Hard level](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/hardLevel.png)
-- **Start Screen**: screen when you open app
-  ![Start Screen](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreen.png)
-- **Win screen**: info about game
-  ![win screen]([https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenInfoPage.png](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/winScreen.png))
-- **Settings**: activate/deactivate haptic feedback
- ![Settings](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenSettingsPage.png)
-- **Info**: info about game
-  ![Info](https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenInfoPage.png)
+- **Easy Level**: 4x2 grid  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/easyLevel.png" width="300">
+
+- **Medium Level**: 3x4 grid  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/mediumLevel.png" width="300">
+
+- **Hard Level**: 4x4 grid  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/hardLevel.png" width="300">
+
+- **Start Screen**: screen when you open app  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreen.png" width="300">
+
+- **Win Screen**: info about game  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/winScreen.png" width="300">
+
+- **Settings**: activate/deactivate haptic feedback  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenSettingsPage.png" width="300">
+
+- **Info**: info about game  
+  <img src="https://github.com/Mokshit-123/MyMemory/blob/main/screenShots/startScreenInfoPage.png" width="300">
 
 ## How to Play
 
-1. **Download the Game**: Download the game from apk folder in this repository.
+1. **Download the Game**: Download the game from the APK folder in this repository.
 2. **Start the Game**: Launch the game and select your desired difficulty level on the start screen.
 3. **Match Tiles**: Tap on two tiles to reveal the images. If they match, they stay revealed. If not, they will be covered again.
 4. **Change Difficulty**: Tap the three-dot menu in the top left corner, go to level, and select the desired difficulty level (medium: 3x4, hard: 4x4).
@@ -36,10 +42,12 @@ When you start the game, you'll be greeted by a start screen where you can choos
 ## Future Improvements
 
 - **Improved Graphics**: Enhanced visuals and animations for a better gaming experience.
-- **BackGround Music**: Add a soft background music that will play when playing the game and option to stop it also
-
+- **Background Music**: Add soft background music that will play during the game with an option to stop it.
 
 ## Acknowledgements
+
 Inspired by the memory game from Purble Palace.
-Contact
-For any questions or feedback, please reach out at -gargm0068@gmail.com
+
+## Contact
+
+For any questions or feedback, please reach out at gargm0068@gmail.com
